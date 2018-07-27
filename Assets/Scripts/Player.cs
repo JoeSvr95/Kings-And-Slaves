@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
 	Animator anim;
 	Vector2 mov;
 
+	CircleCollider2D attackCollider;
+
 	public GameObject initialMap;
 
 	void Awake(){
@@ -20,6 +22,9 @@ public class Player : MonoBehaviour {
 	void Start () {
 		anim = GetComponent<Animator>();
 		rb2d = GetComponent<Rigidbody2D>();
+
+		attackCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
+		attackCollider.enabled = false;
 
 		Camera.main.GetComponent<MainCamera>().SetBound(initialMap);
 	}
@@ -31,20 +36,6 @@ public class Player : MonoBehaviour {
 			Input.GetAxisRaw("Vertical")
 		);
 
-		/*
-		Vector3 mov = new Vector3(
-			Input.GetAxisRaw("Horizontal"),
-			Input.GetAxisRaw("Vertical"),
-			0
-		);
-
-		transform.position = Vector3.MoveTowards(
-			transform.position,
-			transform.position + mov,
-			speed * Time.deltaTime
-		);
-		*/
-
 		if (mov != Vector2.zero){
 			anim.SetFloat("movX", mov.x);
 			anim.SetFloat("movY", mov.y);
@@ -53,8 +44,19 @@ public class Player : MonoBehaviour {
 			anim.SetBool("walking", false);
 		}
 
-		if (Input.GetKeyDown("space")){
+		AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+		bool attacking = stateInfo.IsName("Player_Attack");
+
+		if (Input.GetKeyDown("space") && !attacking){
 			anim.SetTrigger("attacking");
+		}
+
+		if (mov != Vector2.zero) attackCollider.offset = new Vector2(mov.x/2, mov.y/2);
+
+		if (attacking){
+			float playBackTime = stateInfo.normalizedTime;
+			if (playBackTime > 0.33 && playBackTime < 0.66) attackCollider.enabled = true;
+			else attackCollider.enabled = false;
 		}
 	}
 
