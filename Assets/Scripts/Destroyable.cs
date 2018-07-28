@@ -27,6 +27,10 @@ public class Destroyable : MonoBehaviour {
 	}
 	
 	void Update () {
-		
+		AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+
+		if (stateInfo.IsName(destroyState) && stateInfo.normalizedTime >= 1){
+			Destroy(gameObject);
+		}
 	}
 }

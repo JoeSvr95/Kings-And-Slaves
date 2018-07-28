@@ -14,9 +14,13 @@ public class Player : MonoBehaviour {
 	CircleCollider2D attackCollider;
 
 	public GameObject initialMap;
+	public GameObject arrowPrefab;
+
+	bool movePrevent;
 
 	void Awake(){
 		Assert.IsNotNull(initialMap);
+		Assert.IsNotNull(arrowPrefab);
 	}
 
 	void Start () {
@@ -30,12 +34,29 @@ public class Player : MonoBehaviour {
 	}
 	
 	void Update () {
+		Movements();
 
+		Animations();
+
+		SwordAttack();
+
+		ArrowAttack();
+
+		PreventMovement();
+	}
+
+	void FixedUpdate(){
+		rb2d.MovePosition(rb2d.position + mov * speed * Time.deltaTime);
+	}
+
+	void Movements(){
 		mov = new Vector2(
 			Input.GetAxisRaw("Horizontal"),
 			Input.GetAxisRaw("Vertical")
 		);
+	}
 
+	void Animations(){
 		if (mov != Vector2.zero){
 			anim.SetFloat("movX", mov.x);
 			anim.SetFloat("movY", mov.y);
@@ -43,7 +64,9 @@ public class Player : MonoBehaviour {
 		} else {
 			anim.SetBool("walking", false);
 		}
+	}
 
+	void SwordAttack(){
 		AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
 		bool attacking = stateInfo.IsName("Player_Attack");
 
@@ -60,7 +83,49 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void FixedUpdate(){
-		rb2d.MovePosition(rb2d.position + mov * speed * Time.deltaTime);
+	void ArrowAttack(){
+		// Estado actual mirando la información del animador
+		AnimatorStateInfo stateinfo = anim.GetCurrentAnimatorStateInfo(0);
+		bool charging = stateinfo.IsName("Player_Arrow");
+
+		if (Input.GetKeyDown(KeyCode.LeftShift)){
+			anim.SetTrigger("charging");
+		} else if (Input.GetKeyUp(KeyCode.LeftShift)){
+			anim.SetTrigger("attack_bow");
+			// Conseguir la rotación a partir de un vector
+			float angle = Mathf.Atan2(
+				anim.GetFloat("movY"),
+				anim.GetFloat("movX")
+			) * Mathf.Rad2Deg;
+			// Creamos la instancia de la flecha
+			GameObject arrowObj = Instantiate(
+				arrowPrefab, transform.position,
+				Quaternion.AngleAxis(angle, Vector3.forward)
+			);
+			// Movimiento inicial
+			Arrow arrow = arrowObj.GetComponent<Arrow>();
+			arrow.mov.x = anim.GetFloat("movX");
+			arrow.mov.y = anim.GetFloat("movY");
+
+			// Esperar un momento para reactivar el movimiento
+			StartCoroutine(EnableMovementAfter(0.4f));
+		}
+
+		// Parar el movimiento del jugador cuando carga
+		if (charging){
+			movePrevent = true;
+		}
 	}
+
+	void PreventMovement(){
+		if (movePrevent){
+			mov = Vector2.zero;
+		}
+	}
+
+	IEnumerator EnableMovementAfter(float seconds){
+		yield return new WaitForSeconds(seconds);
+		movePrevent = false;
+	}
+
 }
