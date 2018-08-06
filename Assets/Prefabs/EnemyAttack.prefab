@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50046611444270106}
   - component: {fileID: 60931595177562254}
   - component: {fileID: 114014191283039498}
+  - component: {fileID: 114352012878387000}
   m_Layer: 9
   m_Name: EnemyAttack
   m_TagString: Attack
@@ -108,6 +109,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!114 &114352012878387000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1947984421634526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6212884ee05312a4cbe9361331a96384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetName: Player
 --- !u!114 &114683579333812662
 MonoBehaviour:
   m_ObjectHideFlags: 1

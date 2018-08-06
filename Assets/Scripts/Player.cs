@@ -11,6 +11,12 @@ public class Player : MonoBehaviour {
 	Animator anim;
 	Vector2 mov;
 
+	// Vida del jugador
+	[Tooltip("Puntos de vida")]
+	public int maxHp = 3;
+	[Tooltip("Puntos de vida")]
+	public int hp; // Vida actual
+
 	CircleCollider2D attackCollider;
 
 	public GameObject initialMap;
@@ -31,6 +37,8 @@ public class Player : MonoBehaviour {
 		attackCollider.enabled = false;
 
 		Camera.main.GetComponent<MainCamera>().SetBound(initialMap);
+
+		hp = maxHp;
 	}
 	
 	void Update () {
@@ -126,6 +134,23 @@ public class Player : MonoBehaviour {
 	IEnumerator EnableMovementAfter(float seconds){
 		yield return new WaitForSeconds(seconds);
 		movePrevent = false;
+	}
+
+	public void Attacked(){
+		if (--hp <= 0) Destroy(gameObject);
+	}
+
+	void OnGUI(){
+		Vector2 pos = Camera.main.WorldToScreenPoint(transform.position);
+
+		GUI.Box(
+			new Rect(
+				pos.x - 20,
+				Screen.height - pos.y - 60,
+				40,
+				24
+			), hp + "/" + maxHp
+		);
 	}
 
 }

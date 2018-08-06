@@ -43,13 +43,13 @@ public class Enemy : MonoBehaviour {
 		// Por defecto nuestro target será la posición inicial del enemigo
 		target = initialPosition;
 
-		// Comprobamos de colisiones entre el enemigo y el jugador
-		RaycastHit2D hit = Physics2D.Raycast(
-			transform.position,
-			player.transform.position - transform.position,
-			visionRadius,
-			1 << LayerMask.NameToLayer("Default")
-		);
+			// Comprobamos de colisiones entre el enemigo y el jugador
+			RaycastHit2D hit = Physics2D.Raycast(
+				transform.position,
+				player.transform.position - transform.position,
+				visionRadius,
+				1 << LayerMask.NameToLayer("Default")
+			);
 
 		Vector3 forward = transform.TransformDirection(player.transform.position - transform.position);
 		Debug.DrawRay(transform.position, forward, Color.red);
