@@ -8,9 +8,22 @@ public class Enemy : MonoBehaviour {
 	public float attackRadius;
 	public float speed;
 
+	// Variables relacionadas al ataque
+	[Tooltip("Prefab del ataque a distancia")]
+	public GameObject rangePrefab;
+	[Tooltip("Velocidad del ataque")]
+	public float attackSpeed = 2f;
+	bool attacking;
+
+	// Vida de los enemigos
+	[Tooltip("Puntos de vida")]
+	public int maxHp = 3;
+	[Tooltip("Puntos de vida")]
+	public int hp; // Vida actual
+
 	GameObject player;
 
-	Vector3 initialPosition;
+	Vector3 initialPosition, target;
 
 	Animator anim;
 	Rigidbody2D rb2d;
@@ -22,11 +35,13 @@ public class Enemy : MonoBehaviour {
 
 		anim = GetComponent<Animator>();
 		rb2d = GetComponent<Rigidbody2D>();
+
+		hp = maxHp; // Iniciamos la vida
 	}
 
 	void Update(){
 		// Por defecto nuestro target será la posición inicial del enemigo
-		Vector3 target = initialPosition;
+		target = initialPosition;
 
 		// Comprobamos de colisiones entre el enemigo y el jugador
 		RaycastHit2D hit = Physics2D.Raycast(
@@ -54,6 +69,9 @@ public class Enemy : MonoBehaviour {
 			anim.SetFloat("movX", dir.x);
 			anim.SetFloat("movY", dir.y);
 			anim.Play("Enemy_Walk", -1, 0);
+
+			// Empezamos a atacar
+			if (!attacking) StartCoroutine(RangeAttack(attackSpeed));
 		} else {
 			rb2d.MovePosition(transform.position + dir * speed * Time.deltaTime);
 
@@ -66,7 +84,6 @@ public class Enemy : MonoBehaviour {
 
 		// Comprobación para evitar bugs forzando la posición inicial
 		if (target == initialPosition && distance < 0.02f){
-			Debug.Log("ASDasdasd");
 			transform.position = initialPosition;
 			anim.SetBool("walking", false);
 		}
@@ -78,5 +95,36 @@ public class Enemy : MonoBehaviour {
 		Gizmos.color = Color.yellow;
 		Gizmos.DrawWireSphere(transform.position, visionRadius);
 		Gizmos.DrawWireSphere(transform.position, attackRadius);
+	}
+
+	IEnumerator RangeAttack(float seconds){
+		attacking = true;
+		if (target != initialPosition && rangePrefab != null){
+			float angle = Mathf.Atan2(
+				anim.GetFloat("movY"),
+				anim.GetFloat("movX")
+			) * Mathf.Rad2Deg;
+			Instantiate(rangePrefab, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
+			yield return new WaitForSeconds(seconds);
+		}
+		attacking = false;
+	}
+
+	public void Attacked(){
+		if (--hp <= 0) Destroy(gameObject);
+	}
+
+	void OnGUI(){
+		Vector2 pos = Camera.main.WorldToScreenPoint(transform.position);
+
+		GUI.Box(
+			new Rect(
+				pos.x - 20,
+				Screen.height - pos.y - 60,
+				40,
+				24
+			), hp + "/" + maxHp
+		);
+
 	}
 }

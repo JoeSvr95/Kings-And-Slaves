@@ -11,10 +11,11 @@ public class MainCamera : MonoBehaviour {
 		target = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 
-	/*void Start(){
+	void Start(){
 		// Forzar resolucion cuadrada
-		Screen.SetResolution(800, 800, true);
-	}*/
+		if (Application.platform != RuntimePlatform.WebGLPlayer)
+			Screen.SetResolution(800, 800, true);
+	}
 	void Update () {
 
 		if (Input.GetKey("escape")) Application.Quit();

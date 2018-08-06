@@ -10,8 +10,6 @@ public class Warp : MonoBehaviour {
 
 	// Para almacenar el mapa de destino
 	public GameObject targetMap;
-	
-	float fadeTime = 1f;
 
 	void Awake(){
 		// Nos aseguramos de que target se ha establecido o lanzaremos exception
