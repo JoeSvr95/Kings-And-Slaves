@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelChanger : MonoBehaviour {
 	// Este script será utilizado para cambiar los niveles
 	public Animator anim;
+	private int lvlToLoad;
 
-	public void FadeToLevel(GameObject room){
+	public void FadeToLevel(int levelToLoad){
+		lvlToLoad = levelToLoad;
 		anim.SetTrigger("fade_out");
+	}
+
+	public void OnFadeComplete(){
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + lvlToLoad);
 	}
 }
