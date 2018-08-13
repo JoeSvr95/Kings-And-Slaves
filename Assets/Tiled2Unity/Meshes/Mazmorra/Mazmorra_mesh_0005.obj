@@ -1,0 +1,44 @@
+﻿# Tiled2Unity generated file. Do not modify by hand.
+# Wavefront file for 'Mazmorra_mesh_0005.obj'
+
+# Vertices (Count = 16)
+v -7 -1 0
+v -8 -1 0
+v -8 0 0
+v -7 0 0
+v -8 -1 0
+v -9 -1 0
+v -9 0 0
+v -8 0 0
+v -7 -2 0
+v -8 -2 0
+v -8 -1 0
+v -7 -1 0
+v -8 -2 0
+v -9 -2 0
+v -9 -1 0
+v -8 -1 0
+
+# Texture cooridinates (Count = 9)
+vt 0.8 0.0869565
+vt 0.8333333 0.0869565
+vt 0.8333333 0.1304348
+vt 0.8 0.1304348
+vt 0.8666667 0.0869565
+vt 0.8666667 0.1304348
+vt 0.8 0.04347825
+vt 0.8333333 0.04347825
+vt 0.8666667 0.04347825
+
+# Normal
+vn 0 0 -1
+
+# Mesh description
+g Mazmorra_mesh_0005
+
+# Faces
+f 1/1/1 2/2/1 3/3/1 4/4/1
+f 5/2/1 6/5/1 7/6/1 8/3/1
+f 9/7/1 10/8/1 11/2/1 12/1/1
+f 13/8/1 14/9/1 15/5/1 16/2/1
+

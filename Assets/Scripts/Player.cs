@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -16,6 +17,9 @@ public class Player : MonoBehaviour {
 	public int maxHp = 3;
 	[Tooltip("Puntos de vida")]
 	public int hp; // Vida actual
+	public Image[] hearts;
+	public Sprite fullHeart;
+	public Sprite emptyHeart;
 
 	CircleCollider2D attackCollider;
 
@@ -51,6 +55,8 @@ public class Player : MonoBehaviour {
 		ArrowAttack();
 
 		PreventMovement();
+
+		UpdateHearts();
 	}
 
 	void FixedUpdate(){
@@ -131,26 +137,32 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	void UpdateHearts(){
+		for	(int i = 0; i < hearts.Length; i++){
+			if (i < hp){
+				hearts[i].sprite = fullHeart;
+			} else {
+				hearts[i].sprite = emptyHeart;
+			}
+
+			if (i < maxHp){
+				hearts[i].enabled = true;
+			} else {
+				hearts[i].enabled = false;
+			}
+		}
+	}
+
 	IEnumerator EnableMovementAfter(float seconds){
 		yield return new WaitForSeconds(seconds);
 		movePrevent = false;
 	}
 
 	public void Attacked(){
-		if (--hp <= 0) Destroy(gameObject);
-	}
-
-	void OnGUI(){
-		Vector2 pos = Camera.main.WorldToScreenPoint(transform.position);
-
-		GUI.Box(
-			new Rect(
-				pos.x - 20,
-				Screen.height - pos.y - 60,
-				40,
-				24
-			), hp + "/" + maxHp
-		);
+		if (--hp <= 0){
+			UpdateHearts();
+			Destroy(gameObject);
+		}
 	}
 
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
@@ -21,6 +22,9 @@ public class Enemy : MonoBehaviour {
 	public int maxHp = 3;
 	[Tooltip("Puntos de vida")]
 	public int hp; // Vida actual
+	[Header("Unity Stuff")]
+	public Image healthbar;
+	public GameObject health;
 
 	GameObject player;
 
@@ -38,6 +42,7 @@ public class Enemy : MonoBehaviour {
 		rb2d = GetComponent<Rigidbody2D>();
 
 		hp = maxHp; // Iniciamos la vida
+		health.SetActive(false);
 	}
 
 	void Update(){
@@ -112,20 +117,8 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void Attacked(){
+		health.SetActive(true);
 		if (--hp <= 0) Destroy(gameObject);
-	}
-
-	void OnGUI(){
-		Vector2 pos = Camera.main.WorldToScreenPoint(transform.position);
-
-		GUI.Box(
-			new Rect(
-				pos.x - 20,
-				Screen.height - pos.y - 60,
-				40,
-				24
-			), hp + "/" + maxHp
-		);
-
+		healthbar.fillAmount = ((float)hp/(float)maxHp);
 	}
 }
