@@ -165,4 +165,13 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	public bool AddHealth(int points){
+		if ((hp+points) <= maxHp){
+			hp += points;
+			UpdateHearts();
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
