@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour {
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         foreach (Sound s in sounds)
         {
@@ -35,7 +35,8 @@ public class AudioManager : MonoBehaviour {
 
     private void Start()
     {
-        Play("background");
+        Play("backgroundStartMenu");
+        Play("backgroundLevel");
     }
 
     //FindObjectOfType<AudioManager>.Play("");

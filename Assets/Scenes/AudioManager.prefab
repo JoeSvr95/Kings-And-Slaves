@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1125956538213300}
+  m_RootGameObject: {fileID: 1775951290203664}
   m_IsPrefabParent: 1
---- !u!1 &1125956538213300
+--- !u!1 &1775951290203664
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4413816538622716}
-  - component: {fileID: 114136953151801522}
+  - component: {fileID: 4380824200246144}
+  - component: {fileID: 114217418663120106}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -27,12 +27,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4413816538622716
+--- !u!4 &4380824200246144
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1125956538213300}
+  m_GameObject: {fileID: 1775951290203664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,12 +40,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114136953151801522
+--- !u!114 &114217418663120106
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1125956538213300}
+  m_GameObject: {fileID: 1775951290203664}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fbed1f142dbacb4593337d333972383, type: 3}
@@ -120,6 +120,18 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: sword
     clip: {fileID: 8300000, guid: f52a0ce295963a240a0e6ca408c21b95, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: backgroundStartMenu
+    clip: {fileID: 8300000, guid: 7b712af4a10b9d94db06bba39518a941, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: backgroundLevel
+    clip: {fileID: 8300000, guid: cd62ec2fbf9a4a840ade9b647c9a73d8, type: 3}
     volume: 1
     pitch: 0
     loop: 0
