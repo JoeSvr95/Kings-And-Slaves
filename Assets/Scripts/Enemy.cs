@@ -106,6 +106,7 @@ public class Enemy : MonoBehaviour {
 	IEnumerator RangeAttack(float seconds){
 		attacking = true;
 		if (target != initialPosition && rangePrefab != null){
+			anim.SetTrigger("attacking");
 			float angle = Mathf.Atan2(
 				anim.GetFloat("movY"),
 				anim.GetFloat("movX")
