@@ -1,6 +1,7 @@
 ﻿using UnityEngine.Audio;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour {
 
@@ -11,8 +12,10 @@ public class AudioManager : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 
-        if(instance == null)
+        if(instance == null){
+            DontDestroyOnLoad(gameObject);
             instance = this;
+        }    
         else
         {
             Destroy(gameObject);
@@ -36,7 +39,6 @@ public class AudioManager : MonoBehaviour {
     private void Start()
     {
         Play("backgroundStartMenu");
-        Play("backgroundLevel");
     }
 
     //FindObjectOfType<AudioManager>.Play("");
@@ -53,4 +55,30 @@ public class AudioManager : MonoBehaviour {
         s.source.Play();
 		
 	}
+
+    void Stop (String name) {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s == null)
+        {
+            Debug.LogWarning("Sound" + name + " not found!");
+            return;
+        }
+
+        s.source.Stop();
+		
+	}
+
+    void OnEnable(){
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+    }
+
+    void OnDisable(){
+        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+    }
+
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode){
+        Stop("backgroundStartMenu");
+        Play("backgroundLevel");
+    }
 }

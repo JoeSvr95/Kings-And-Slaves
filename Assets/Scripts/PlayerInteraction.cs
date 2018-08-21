@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour {
 
-	GameObject currentObject = null;
-	public InteractiveObject interObjScript = null;
+	GameObject currentObject = null; // Objeto
+	public InteractiveObject interObjScript = null; // Script del objeto
 	public Inventory inventory;
 	public Player player;
 
@@ -18,8 +18,19 @@ public class PlayerInteraction : MonoBehaviour {
 				inventory.AddItem(currentObject);
 			} else if (interObjScript.IsConsumable){
 				UseConsumable(currentObject);
+			} else if (interObjScript.IsOpenable){
+				// Verificar si el objeto está bloqueado
+				if (interObjScript.locked){
+					// Verificar si tenemos el objeto necesario para desbloquearlo
+					if (inventory.FindItem(interObjScript.itemNeeded)){
+						interObjScript.locked = false;
+						interObjScript.Open();
+						Debug.Log("Door was unlocked!");
+					} else {
+						Debug.Log("Door needs a key!");
+					}
+				}
 			}
-
 		}
 	}
 
