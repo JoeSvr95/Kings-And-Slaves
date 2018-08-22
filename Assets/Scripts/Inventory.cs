@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
 
-	public GameObject[] inventory = new GameObject[5];
+	public Item[] inventory = new Item[5];
 	public Image[] inventorySprites = new Image[5];
 
-	public void AddItem(GameObject item){
+	public void AddItem(Item item){
 		bool itemAdded = false;
 		
 		// Verificar si hay espacio en el inventario
@@ -31,10 +31,13 @@ public class Inventory : MonoBehaviour {
 		}
 	}
 
-	public bool FindItem(GameObject item){
+	public bool FindItem(Item item, string type){
+		Debug.Log(item.itemType);
 		for (int i = 0; i < inventory.Length; i++){
 			if (inventory[i] == item){
-				return true;
+				if (inventory[i].itemType == type)
+					Debug.Log("No es la llave correcta");
+					return true;
 			}
 		}
 

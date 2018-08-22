@@ -160,8 +160,9 @@ public class Player : MonoBehaviour {
 
 	public void Attacked(){
 		if (--hp <= 0){
+			movePrevent = true;
 			UpdateHearts();
-			Destroy(gameObject);
+			GameOver();
 		}
 	}
 
@@ -173,5 +174,19 @@ public class Player : MonoBehaviour {
 		} else {
 			return false;
 		}
+	}
+
+	public float GetPosX(){
+		return mov.x;
+	}
+
+	public float GetPosY(){
+		return mov.y;
+	}
+
+	public void GameOver(){
+		Time.timeScale = 0f;
+		PreventMovement();
+		FindObjectOfType<GameManager>().EndGame();
 	}
 }

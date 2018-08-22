@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour {
 
-	GameObject currentObject = null; // Objeto
+	Item currentObject = null; // Objeto
 	public InteractiveObject interObjScript = null; // Script del objeto
 	public Inventory inventory;
 	public Player player;
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Interactive"){
-			currentObject = other.gameObject;
+			currentObject = other.gameObject.GetComponent<Item>();
 			interObjScript = currentObject.GetComponent<InteractiveObject>();
 
 			if (interObjScript.IsPickUpItem) {
@@ -22,9 +22,9 @@ public class PlayerInteraction : MonoBehaviour {
 				// Verificar si el objeto está bloqueado
 				if (interObjScript.locked){
 					// Verificar si tenemos el objeto necesario para desbloquearlo
-					if (inventory.FindItem(interObjScript.itemNeeded)){
+					if (inventory.FindItem(interObjScript.itemNeeded, interObjScript.typeItemNeeded)){
 						interObjScript.locked = false;
-						interObjScript.Open();
+						interObjScript.Open(player.GetPosX(), player.GetPosY());
 						Debug.Log("Door was unlocked!");
 					} else {
 						Debug.Log("Door needs a key!");
@@ -34,7 +34,7 @@ public class PlayerInteraction : MonoBehaviour {
 		}
 	}
 
-	void UseConsumable(GameObject item){
+	void UseConsumable(Item item){
 		bool healthIncrease  = player.AddHealth(1);
 		if (healthIncrease){
 			item.SendMessage("PickUp");

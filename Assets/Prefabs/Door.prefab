@@ -23,6 +23,9 @@ GameObject:
   - component: {fileID: 61161269348610354}
   - component: {fileID: 61421194016176266}
   - component: {fileID: 114508974530094164}
+  - component: {fileID: 95518317846535274}
+  - component: {fileID: 114116348551255192}
+  - component: {fileID: 114638282402248596}
   m_Layer: 0
   m_Name: Door
   m_TagString: Interactive
@@ -36,8 +39,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1594037591230320}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.366, y: 1.677, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.49, y: -4.299999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,6 +96,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2338648, y: 1.375}
   m_EdgeRadius: 0
+--- !u!95 &95518317846535274
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1594037591230320}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e9549e943d9a978468c5898c92ab9d44, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114116348551255192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1594037591230320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f0e93c41756e54194fae6b768c08ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fixEveryFrame: 1
 --- !u!114 &114508974530094164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,6 +142,22 @@ MonoBehaviour:
   IsOpenable: 1
   locked: 1
   itemNeeded: {fileID: 0}
+  typeItemNeeded: 
+  PosX: 0
+  PosY: 0
+  anim: {fileID: 95518317846535274}
+--- !u!114 &114638282402248596
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1594037591230320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43a5309e72210d418c6ce335d7e6237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 
 --- !u!212 &212907713057418662
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212624311669245274}
   - component: {fileID: 114913217784410636}
   - component: {fileID: 61326089115997648}
+  - component: {fileID: 114565827265861006}
   m_Layer: 0
   m_Name: Key
   m_TagString: Interactive
@@ -59,7 +60,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.4375, y: 0.8125}
-    newSize: {x: 0.07, y: 0.13}
+    newSize: {x: 0.4375, y: 0.8125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -67,6 +68,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.30762702, y: 0.68262726}
   m_EdgeRadius: 0
+--- !u!114 &114565827265861006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803108527083470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43a5309e72210d418c6ce335d7e6237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyType: 
 --- !u!114 &114913217784410636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -79,6 +92,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPickUpItem: 1
+  IsConsumable: 0
+  IsOpenable: 0
+  locked: 0
+  itemNeeded: {fileID: 0}
+  typeItemNeeded: 
+  PosX: 0
+  PosY: 0
+  anim: {fileID: 0}
 --- !u!212 &212624311669245274
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -114,12 +135,12 @@ SpriteRenderer:
   m_SortingLayerID: -1628746687
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ca8f8c334bd071341b7fdab1073fee60, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 30d5a3000135f4d4abdc496277e08f2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.07, y: 0.13}
+  m_Size: {x: 0.4375, y: 0.8125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -47,3 +47,6 @@ TagManager:
   - name: Player
     uniqueID: 2666220609
     locked: 0
+  - name: Adornos
+    uniqueID: 3610667051
+    locked: 0

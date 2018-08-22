@@ -12,6 +12,10 @@ public class LevelChanger : MonoBehaviour {
 	}
 
 	public void OnFadeComplete(){
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + lvlToLoad);
+		SceneManager.LoadScene(lvlToLoad);
+	}
+
+	public void SetActive(bool state){
+		gameObject.SetActive(state);
 	}
 }

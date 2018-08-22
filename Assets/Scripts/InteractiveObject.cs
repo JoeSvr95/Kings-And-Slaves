@@ -8,15 +8,28 @@ public class InteractiveObject : MonoBehaviour {
 	public bool IsConsumable; // Verificar si el objeto es consumible
 	public bool IsOpenable; // Verifica si el objeto se puede abrir
 	public bool locked; // Verifica si está bloqueado
-	public GameObject itemNeeded; // Objeto que se necesita para interactuar
+	public Item itemNeeded; // Objeto que se necesita para interactuar
+	public string typeItemNeeded;
+
+	public float PosX;
+	public float PosY;
 
 	public Animator anim;
+
+	public void Awake(){
+		if (IsOpenable){
+			anim.SetFloat("PosX", PosX);
+			anim.SetFloat("PosY", PosY);
+		}
+	}
 
 	public void PickUp(){
 		gameObject.SetActive(false);
 	}
 
-	public void Open(){
+	public void Open(float posX, float posY){
+		anim.SetFloat("PosX", posX);
+		anim.SetFloat("PosY", posY);
 		anim.SetBool("opened", true);
 	}
 }

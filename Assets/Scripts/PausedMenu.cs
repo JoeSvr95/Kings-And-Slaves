@@ -8,6 +8,8 @@ public class PausedMenu : MonoBehaviour {
 	public static bool GameIsPaused = false;
 
 	public GameObject pauseMenuUi;
+	public GameObject gameOverScreen;
+	public LevelChanger lvlChanger;
 	
 	// Update is called once per frame
 	void Update () {
@@ -40,11 +42,18 @@ public class PausedMenu : MonoBehaviour {
     public void LoadMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+		lvlChanger.SetActive(true);
+        lvlChanger.FadeToLevel(0);
     }
 
     public void QuitGame()
     {
         Application.Quit();
     }
+
+	public void Restart(){
+		Time.timeScale = 1f;
+		lvlChanger.SetActive(true);
+		lvlChanger.FadeToLevel(1);
+	}
 }
