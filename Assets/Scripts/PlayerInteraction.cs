@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour {
@@ -8,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour {
 	public InteractiveObject interObjScript = null; // Script del objeto
 	public Inventory inventory;
 	public Player player;
+	public Text msgPlayer;
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Interactive"){
@@ -25,8 +27,10 @@ public class PlayerInteraction : MonoBehaviour {
 					if (inventory.FindItem(interObjScript.itemNeeded, interObjScript.typeItemNeeded)){
 						interObjScript.locked = false;
 						interObjScript.Open(player.GetPosX(), player.GetPosY());
+						StartCoroutine(ShowMsg("The door was unlocked!"));
 						Debug.Log("Door was unlocked!");
 					} else {
+						StartCoroutine(ShowMsg("This door needs a key!"));
 						Debug.Log("Door needs a key!");
 					}
 				}
@@ -41,5 +45,11 @@ public class PlayerInteraction : MonoBehaviour {
 			Destroy(item);
 		}
 	
+	}
+
+	IEnumerator ShowMsg(string text){
+		msgPlayer.text = text;
+		yield return new WaitForSeconds(5f);
+		msgPlayer.text = "";
 	}
 }

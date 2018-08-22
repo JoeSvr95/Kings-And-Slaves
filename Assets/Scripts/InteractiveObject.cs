@@ -11,6 +11,7 @@ public class InteractiveObject : MonoBehaviour {
 	public Item itemNeeded; // Objeto que se necesita para interactuar
 	public string typeItemNeeded;
 
+	// Posicion del objeto en el mapa.
 	public float PosX;
 	public float PosY;
 
@@ -28,8 +29,11 @@ public class InteractiveObject : MonoBehaviour {
 	}
 
 	public void Open(float posX, float posY){
-		anim.SetFloat("PosX", posX);
-		anim.SetFloat("PosY", posY);
+		if (PosY == 0 && posY == 0){
+			anim.SetFloat("PosX", posX);	
+		} else if (PosY == 0 && posY == 0){
+			anim.SetFloat("PosY", posY);
+		}
 		anim.SetBool("opened", true);
 	}
 }
