@@ -5,8 +5,19 @@ using UnityEngine;
 public class Item : MonoBehaviour {
 
 	public string itemType;
+	
+	[HideInInspector]
+	public int effect;
 
-	public string GetItemType(){
-		return itemType;
+	void Start(){
+		Debug.Log(itemType);
+		if (gameObject.name != "Health"){
+			if (Random.value < 0.5f){
+				effect = -1;
+			} else {
+				effect = 1;
+			}
+			Debug.Log(effect);
+		}
 	}
 }

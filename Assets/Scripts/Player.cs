@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
+	// Movimientos del jugador
 	public float speed = 4f;
-
 	Rigidbody2D rb2d;
 	Animator anim;
 	Vector2 mov;
@@ -21,7 +21,9 @@ public class Player : MonoBehaviour {
 	public Sprite fullHeart;
 	public Sprite emptyHeart;
 
+	// Ataque
 	CircleCollider2D attackCollider;
+	public int damage;
 
 	public GameObject initialMap;
 	public GameObject arrowPrefab;
@@ -31,6 +33,7 @@ public class Player : MonoBehaviour {
 	void Awake(){
 		Assert.IsNotNull(initialMap);
 		Assert.IsNotNull(arrowPrefab);
+		damage = 1;
 	}
 
 	void Start () {
@@ -188,5 +191,37 @@ public class Player : MonoBehaviour {
 		Time.timeScale = 0f;
 		PreventMovement();
 		FindObjectOfType<GameManager>().EndGame();
+	}
+
+	public bool ChangeSpeed(int newSpeed){
+		if ((speed + newSpeed) > 0){
+			speed += newSpeed;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public bool ChangeDamage(int newDamage){
+		if ((damage + newDamage) > 0){
+			damage += newDamage;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public bool ChangeHP(int newhp){
+		int tempMaxHP = maxHp;
+		if ((maxHp + newhp) <= hearts.Length){
+			maxHp += newhp;
+			if (tempMaxHP > maxHp){
+				hp += newhp;
+				UpdateHearts();
+			}
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

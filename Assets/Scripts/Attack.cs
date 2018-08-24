@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour {
 	public string targetName;
-
+	public Player player;
 	void OnTriggerEnter2D(Collider2D col) {
-		if (col.tag == targetName) col.SendMessage("Attacked");
+		if (col.tag == targetName){
+			if (col.tag == "Player"){
+				col.SendMessage("Attacked");
+			} else {
+				col.SendMessage("Attacked", player.damage);
+			}
+		} 
 	}
 }

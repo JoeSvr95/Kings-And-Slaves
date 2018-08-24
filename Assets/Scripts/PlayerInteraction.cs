@@ -39,12 +39,31 @@ public class PlayerInteraction : MonoBehaviour {
 	}
 
 	void UseConsumable(Item item){
-		bool healthIncrease  = player.AddHealth(1);
-		if (healthIncrease){
-			item.SendMessage("PickUp");
-			Destroy(item);
+		if (item.itemType == "health"){
+			bool healthIncrease  = player.AddHealth(item.effect);
+			if (healthIncrease){
+				item.SendMessage("PickUp");
+				Destroy(item);
+			}
+		} else if (item.itemType == "speed"){
+			bool speedIncrease = player.ChangeSpeed(item.effect);
+			if (speedIncrease){
+				item.SendMessage("PickUp");
+				Destroy(item);
+			}
+		} else if (item.itemType == "damage"){
+			bool damageIncrease = player.ChangeDamage(item.effect);
+			if (damageIncrease){
+				item.SendMessage("PickUp");
+				Destroy(item);
+			}
+		} else if (item.itemType == "hpbonus"){
+			bool damageIncrease = player.ChangeHP(item.effect);
+			if (damageIncrease){
+				item.SendMessage("PickUp");
+				Destroy(item);
+			}
 		}
-	
 	}
 
 	IEnumerator ShowMsg(string text){

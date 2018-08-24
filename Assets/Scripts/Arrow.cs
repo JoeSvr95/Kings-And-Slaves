@@ -10,9 +10,14 @@ public class Arrow : MonoBehaviour {
 	[HideInInspector]
 	public Vector2 mov;
 	public float speed;
-	
+	public Player player;
+
 	void Update () {
 		transform.position += new Vector3(mov.x, mov.y, 0) * speed * Time.deltaTime;
+	}
+
+	void Start(){
+		player = FindObjectOfType<Player>();
 	}
 
 	IEnumerator OnTriggerEnter2D(Collider2D col){
@@ -20,7 +25,7 @@ public class Arrow : MonoBehaviour {
 			yield return new WaitForSeconds(waitBeforeDestroy);
 			Destroy(gameObject);
 		} else if (col.tag != "Player" && col.tag != "Attack"){
-			if (col.tag == "Enemy") col.SendMessage("Attacked");
+			if (col.tag == "Enemy") col.SendMessage("Attacked", player.damage);
 			Destroy(gameObject);
 		}
 

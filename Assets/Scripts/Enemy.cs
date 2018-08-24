@@ -117,9 +117,13 @@ public class Enemy : MonoBehaviour {
 		attacking = false;
 	}
 
-	public void Attacked(){
+	public void Attacked(int damage){
 		health.SetActive(true);
-		if (--hp <= 0) Destroy(gameObject);
+		if ((hp - damage) <= 0){
+			Destroy(gameObject);
+		} else {
+			hp -= damage;
+		}
 		healthbar.fillAmount = ((float)hp/(float)maxHp);
 	}
 }
