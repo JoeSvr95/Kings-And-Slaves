@@ -10,14 +10,12 @@ public class Item : MonoBehaviour {
 	public int effect;
 
 	void Start(){
-		Debug.Log(itemType);
-		if (gameObject.name != "Health"){
+		if (itemType != "health"){
 			if (Random.value < 0.5f){
 				effect = -1;
 			} else {
 				effect = 1;
 			}
-			Debug.Log(effect);
 		}
 	}
 }

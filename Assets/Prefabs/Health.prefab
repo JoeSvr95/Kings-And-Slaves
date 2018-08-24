@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212069930920770842}
   - component: {fileID: 114418776716269956}
   - component: {fileID: 61315384583803170}
+  - component: {fileID: 114384455325031606}
   m_Layer: 0
   m_Name: Health
   m_TagString: Interactive
@@ -35,8 +36,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1868747474856574}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.52, y: -0.57, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.4900002, y: -5.53, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,6 +68,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.50657666, y: 0.8242256}
   m_EdgeRadius: 0
+--- !u!114 &114384455325031606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1868747474856574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43a5309e72210d418c6ce335d7e6237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: health
+  effect: 1
 --- !u!114 &114418776716269956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -83,6 +97,7 @@ MonoBehaviour:
   IsOpenable: 0
   locked: 0
   itemNeeded: {fileID: 0}
+  typeItemNeeded: 
   PosX: 0
   PosY: 0
   anim: {fileID: 0}
@@ -118,9 +133,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1628746687
-  m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: c031ee632a0f1094b9b00320fa3601fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

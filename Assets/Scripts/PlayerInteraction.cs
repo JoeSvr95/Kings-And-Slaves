@@ -28,10 +28,8 @@ public class PlayerInteraction : MonoBehaviour {
 						interObjScript.locked = false;
 						interObjScript.Open(player.GetPosX(), player.GetPosY());
 						StartCoroutine(ShowMsg("The door was unlocked!"));
-						Debug.Log("Door was unlocked!");
 					} else {
 						StartCoroutine(ShowMsg("This door needs a key!"));
-						Debug.Log("Door needs a key!");
 					}
 				}
 			}

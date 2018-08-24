@@ -25,6 +25,9 @@ public class Player : MonoBehaviour {
 	CircleCollider2D attackCollider;
 	public int damage;
 
+	// Status
+	public Text statusTextBox;
+
 	public GameObject initialMap;
 	public GameObject arrowPrefab;
 
@@ -196,6 +199,7 @@ public class Player : MonoBehaviour {
 	public bool ChangeSpeed(int newSpeed){
 		if ((speed + newSpeed) > 0){
 			speed += newSpeed;
+			StartCoroutine(ShowStats(newSpeed, "Speed"));
 			return true;
 		} else {
 			return false;
@@ -205,6 +209,7 @@ public class Player : MonoBehaviour {
 	public bool ChangeDamage(int newDamage){
 		if ((damage + newDamage) > 0){
 			damage += newDamage;
+			StartCoroutine(ShowStats(newDamage, "Damage"));
 			return true;
 		} else {
 			return false;
@@ -219,9 +224,18 @@ public class Player : MonoBehaviour {
 				hp += newhp;
 				UpdateHearts();
 			}
+			StartCoroutine(ShowStats(newhp, "HP"));
 			return true;
 		} else {
 			return false;
 		}
 	}
+
+	IEnumerator ShowStats(int number, string stat){
+		string sign = "";
+		if (number > 0) sign = "+";
+		statusTextBox.text = sign + number + " " + stat;
+		yield return new WaitForSeconds(2f);
+		statusTextBox.text = "";
+	} 
 }

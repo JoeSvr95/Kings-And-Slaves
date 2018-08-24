@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 58194513187649884}
   - component: {fileID: 95821532712489072}
   - component: {fileID: 114818746671693880}
+  - component: {fileID: 114559427482549160}
   m_Layer: 0
   m_Name: Jarron
   m_TagString: Untagged
@@ -36,8 +37,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1002783883874026}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: -1.67, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.4337976, y: -1.4878588, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,6 +77,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114559427482549160
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002783883874026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f0e93c41756e54194fae6b768c08ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fixEveryFrame: 1
 --- !u!114 &114818746671693880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,6 +102,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyState: jarron_destroy
   timeForDisable: 0.25
+  itemPrefabs:
+  - {fileID: 1868747474856574, guid: 700822ed5b6194047bad00d3da7b0156, type: 2}
+  - {fileID: 1059198470097728, guid: 3786713ad1c81cb48b84ffdb67e47a24, type: 2}
+  - {fileID: 1993408524203658, guid: 1802d9a7d8d8abb429dd49774b60e1a0, type: 2}
+  itemPrefab: {fileID: 1378141256368156, guid: 12dc5ccc243b35242bbfa2212dffaf38, type: 2}
 --- !u!212 &212152394269187012
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -121,9 +139,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -506322217
-  m_SortingLayer: 1
-  m_SortingOrder: 83
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: a4fd227ced33b154b9ce8d7a68de1c88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
