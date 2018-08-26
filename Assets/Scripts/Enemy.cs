@@ -27,7 +27,6 @@ public class Enemy : MonoBehaviour {
 	public GameObject health;
 
 	GameObject player;
-
 	Vector3 initialPosition, target;
 
 	Animator anim;
@@ -106,6 +105,7 @@ public class Enemy : MonoBehaviour {
 	IEnumerator RangeAttack(float seconds){
 		attacking = true;
 		if (target != initialPosition && rangePrefab != null){
+			AudioManager.instance.PlayBowShotSound();
 			anim.SetTrigger("attacking");
 			float angle = Mathf.Atan2(
 				anim.GetFloat("movY"),
@@ -119,6 +119,7 @@ public class Enemy : MonoBehaviour {
 
 	public void Attacked(int damage){
 		health.SetActive(true);
+		AudioManager.instance.PlayOuchEnemySound();
 		if ((hp - damage) <= 0){
 			Destroy(gameObject);
 		} else {

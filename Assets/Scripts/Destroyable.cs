@@ -10,6 +10,9 @@ public class Destroyable : MonoBehaviour {
 	public GameObject[] itemPrefabs;
 	public GameObject itemPrefab;
 
+	[HideInInspector]
+	public AudioManager audioManager;
+
 	Animator anim;
 
 	void Awake(){
@@ -18,7 +21,10 @@ public class Destroyable : MonoBehaviour {
 			hasItem = true;
 		}
 
+		Debug.Log(hasItem);
+
 		if (hasItem){
+			Debug.Log("Va a tener item");
 			itemPrefab = itemPrefabs[Random.Range(0, itemPrefabs.Length)];
 			Debug.Log(itemPrefab.name);
 		}
@@ -26,12 +32,14 @@ public class Destroyable : MonoBehaviour {
 
 	void Start () {
 		anim = GetComponent<Animator>();
+		audioManager = FindObjectOfType<AudioManager>();
 	}
 
 	IEnumerator OnTriggerEnter2D(Collider2D col){
 		Debug.Log(col.tag);
 		// Si ataca se reproduce la animacion del jarron
 		if (col.tag == "Attack"){
+			audioManager.PlayBrakeVase();
 			anim.Play(destroyState);
 			yield return new WaitForSeconds(timeForDisable);
 

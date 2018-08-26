@@ -13,7 +13,6 @@ public class AudioManager : MonoBehaviour {
 	void Awake () {
 
         if(instance == null){
-            DontDestroyOnLoad(gameObject);
             instance = this;
         }    
         else
@@ -22,7 +21,7 @@ public class AudioManager : MonoBehaviour {
             return;
         }
 
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
 
         foreach (Sound s in sounds)
         {
@@ -40,9 +39,7 @@ public class AudioManager : MonoBehaviour {
     {
         Play("backgroundStartMenu");
     }
-
-    //FindObjectOfType<AudioManager>.Play("");
-    // Update is called once per frame
+    
     void Play (String name) {
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
@@ -61,24 +58,78 @@ public class AudioManager : MonoBehaviour {
 
         if (s == null)
         {
-            Debug.LogWarning("Sound" + name + " not found!");
+            Debug.LogWarning("Sound " + name + " not found!");
             return;
         }
 
         s.source.Stop();
-		
 	}
 
-    void OnEnable(){
-        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+    public void StopSceneMusic(int sceneIndex){
+        sounds[sceneIndex].source.Stop();
     }
 
-    void OnDisable(){
-        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+    public void PlaySceneMusic(int sceneIndex){
+        switch (sceneIndex){
+            case 0:
+                Play("backgroundStartMenu");
+                break;
+            case 1:
+                Play("backgroundLevel");
+                break;
+            default:
+                Play("backgroundStartMenu");
+                break;
+        }
     }
 
-    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode){
-        Stop("backgroundStartMenu");
-        Play("backgroundLevel");
+    public void PlaySwordSound(){
+        Play("swordSound");
     }
+
+    public void PlayDoorSound(){
+        Play("doorUnlockSound");
+    }
+
+    public void PlayDoorLocked(){
+        Play("doorLockSound");
+    }
+
+    public void PlayKeyPickUp(){
+        Play("keyPickUpSound");
+    }
+
+    public void PlayBrakeVase(){
+        Play("vaseBreakSound");
+    }
+
+    public void PlayBowShotSound(){
+        Play("bowShootSound");
+    }
+
+    public void PlayHealthSound(){
+        Play("healthSound");
+    }
+
+    public void PlayPotionSound(){
+        Play("potionSound");
+    }
+
+    public void PlayOuchEnemySound(){
+        Play("ouchEnemySound");
+    }
+
+    public void PlayOuchPlayerSound(){
+        Play("ouchPlayerSound");
+    }
+
+    public void PlayGameOverSound(){
+        Stop("backgroundLevel");
+        Play("gameOverSound");
+    }
+
+    public void StopGameOverSound(){
+        Stop("gameOverSound");
+    }
+
 }

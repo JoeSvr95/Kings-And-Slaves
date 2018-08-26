@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1947984421634526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.627, y: -0.22, z: 0}
+  m_LocalPosition: {x: -1.0333946, y: -2.7416804, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -89,14 +89,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.3345381, y: 0.5942996}
-      - {x: -0.029958248, y: 0.2782235}
-      - {x: -0.034496665, y: -0.27943173}
-      - {x: -0.34088683, y: -0.5963018}
-      - {x: -0.037893295, y: -0.5922998}
-      - {x: 0.21713197, y: -0.40186742}
-      - {x: 0.22400463, y: 0.3397403}
-      - {x: -0.029774547, y: 0.58414185}
+    - - {x: 0.0036168098, y: -0.030861378}
+      - {x: 0.18808103, y: -0.030719519}
+      - {x: 0.1884256, y: -0.1331389}
+      - {x: 0.4333716, y: 0.0056610107}
+      - {x: 0.1883691, y: 0.12689734}
+      - {x: 0.18802196, y: 0.031185865}
+      - {x: 0.004075289, y: 0.03204727}
 --- !u!114 &114014191283039498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetName: Player
+  player: {fileID: 0}
 --- !u!114 &114683579333812662
 MonoBehaviour:
   m_ObjectHideFlags: 1

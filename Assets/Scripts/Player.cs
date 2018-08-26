@@ -30,6 +30,7 @@ public class Player : MonoBehaviour {
 
 	public GameObject initialMap;
 	public GameObject arrowPrefab;
+	public GameObject gameOverScreen;
 
 	bool movePrevent;
 
@@ -92,6 +93,7 @@ public class Player : MonoBehaviour {
 
 		if (Input.GetKeyDown("space") && !attacking){
 			anim.SetTrigger("attacking");
+			AudioManager.instance.PlaySwordSound();
 		}
 
 		if (mov != Vector2.zero) attackCollider.offset = new Vector2(mov.x/2, mov.y/2);
@@ -127,6 +129,7 @@ public class Player : MonoBehaviour {
 			arrow.mov.x = anim.GetFloat("movX");
 			arrow.mov.y = anim.GetFloat("movY");
 
+			AudioManager.instance.PlayBowShotSound();
 			// Esperar un momento para reactivar el movimiento
 			StartCoroutine(EnableMovementAfter(0.4f));
 		}
@@ -165,6 +168,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public void Attacked(){
+		AudioManager.instance.PlayOuchPlayerSound();
 		if (--hp <= 0){
 			movePrevent = true;
 			UpdateHearts();
@@ -191,9 +195,10 @@ public class Player : MonoBehaviour {
 	}
 
 	public void GameOver(){
+		gameOverScreen.SetActive(true);
 		Time.timeScale = 0f;
 		PreventMovement();
-		FindObjectOfType<GameManager>().EndGame();
+		AudioManager.instance.PlayGameOverSound();
 	}
 
 	public bool ChangeSpeed(int newSpeed){

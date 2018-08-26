@@ -17,6 +17,7 @@ public class PlayerInteraction : MonoBehaviour {
 			interObjScript = currentObject.GetComponent<InteractiveObject>();
 
 			if (interObjScript.IsPickUpItem) {
+				AudioManager.instance.PlayKeyPickUp();
 				inventory.AddItem(currentObject);
 			} else if (interObjScript.IsConsumable){
 				UseConsumable(currentObject);
@@ -27,8 +28,10 @@ public class PlayerInteraction : MonoBehaviour {
 					if (inventory.FindItem(interObjScript.itemNeeded, interObjScript.typeItemNeeded)){
 						interObjScript.locked = false;
 						interObjScript.Open(player.GetPosX(), player.GetPosY());
+						AudioManager.instance.PlayDoorSound();
 						StartCoroutine(ShowMsg("The door was unlocked!"));
 					} else {
+						AudioManager.instance.PlayDoorLocked();
 						StartCoroutine(ShowMsg("This door needs a key!"));
 					}
 				}
@@ -41,24 +44,28 @@ public class PlayerInteraction : MonoBehaviour {
 			bool healthIncrease  = player.AddHealth(item.effect);
 			if (healthIncrease){
 				item.SendMessage("PickUp");
+				AudioManager.instance.PlayHealthSound();
 				Destroy(item);
 			}
 		} else if (item.itemType == "speed"){
 			bool speedIncrease = player.ChangeSpeed(item.effect);
 			if (speedIncrease){
 				item.SendMessage("PickUp");
+				AudioManager.instance.PlayPotionSound();
 				Destroy(item);
 			}
 		} else if (item.itemType == "damage"){
 			bool damageIncrease = player.ChangeDamage(item.effect);
 			if (damageIncrease){
 				item.SendMessage("PickUp");
+				AudioManager.instance.PlayPotionSound();
 				Destroy(item);
 			}
 		} else if (item.itemType == "hpbonus"){
 			bool damageIncrease = player.ChangeHP(item.effect);
 			if (damageIncrease){
 				item.SendMessage("PickUp");
+				AudioManager.instance.PlayPotionSound();
 				Destroy(item);
 			}
 		}
