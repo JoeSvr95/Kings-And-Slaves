@@ -22,6 +22,7 @@ public class My_grid : MonoBehaviour {
         string number = "";
         Point point;
         List<Dictionary<string,object>> data = CSVReader.Read ("paths");
+        string type_cell = "";
 
         for (var i = 0; i < 4; i++ ){
             for (var j = 0; j < 4; j++ ){
@@ -30,6 +31,8 @@ public class My_grid : MonoBehaviour {
                 point = GameObject.Find("Point" + number).GetComponent<Point>();
                 point.row = i;
                 point.column = j;
+                type_cell = data[1][number].ToString();
+                print("Point" + number + ": " + type_cell);
             }
         } 
 

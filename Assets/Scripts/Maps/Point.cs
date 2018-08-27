@@ -8,13 +8,13 @@ public class Point : MonoBehaviour {
 	public int row;
 	public int column;
 	private string type_border = "";
-	private string type_cell;
+	public int type_cell;
 	private string model = "1";
 	private string path;
 	public static bool asigned = false;
 
 	// PATH -> type_border/type_typecell_model | 'Type'type_cell/type_typecell_model
-
+	/*
 	void assign_prefab () {
 
 		if (column == 0){
@@ -39,6 +39,7 @@ public class Point : MonoBehaviour {
 		}
 
 	}
+	 */
 
 	void Start () {
 		// assign_prefab();
