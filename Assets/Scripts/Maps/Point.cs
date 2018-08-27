@@ -8,7 +8,7 @@ public class Point : MonoBehaviour {
 	public int row;
 	public int column;
 	private string type_border = "";
-	public int type_cell;
+	public string type_cell;
 	private string model = "1";
 	private string path;
 	public static bool asigned = false;
@@ -40,6 +40,15 @@ public class Point : MonoBehaviour {
 
 	}
 	 */
+
+	public void assign_tile () {
+
+		string tile_name = "type_" + type_cell + "_1";
+		print(tile_name);
+		var tile = Resources.Load<GameObject>(tile_name);
+		GameObject.Instantiate(tile, transform.position, transform.rotation);
+
+	}
 
 	void Start () {
 		// assign_prefab();
