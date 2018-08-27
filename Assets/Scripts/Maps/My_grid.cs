@@ -15,12 +15,25 @@ public class My_grid : MonoBehaviour {
         }
     } */
 
+    // Point[] point_list = GameObject.FindObjectOfType<Point>();
+
     void asign_row_column(){
+
+        string number = "";
+        Point point;
+        List<Dictionary<string,object>> data = CSVReader.Read ("paths");
+
         for (var i = 0; i < 4; i++ ){
             for (var j = 0; j < 4; j++ ){
-                print(i);
+                number = "";
+                number = i.ToString() + j.ToString();
+                point = GameObject.Find("Point" + number).GetComponent<Point>();
+                point.row = i;
+                point.column = j;
             }
-        }
+        } 
+
+
     }
 
 	// Use this for initialization
