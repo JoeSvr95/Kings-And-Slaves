@@ -6,6 +6,10 @@ TextureImporter:
     21300002: doors_1
     21300004: doors_2
     21300006: doors_3
+    21300008: doors_4
+    21300010: doors_5
+    21300012: doors_6
+    21300014: doors_7
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -113,7 +117,7 @@ TextureImporter:
         serializedVersion: 2
         x: 3
         y: 0
-        width: 28
+        width: 9
         height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -122,7 +126,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfb43a1c96d67fe488be422b431b1869
+      spriteID: fb7abefd3f1fd2f418c8e16557585a87
       vertices: []
       indices: 
       edges: []
@@ -131,10 +135,10 @@ TextureImporter:
       name: doors_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 0
-        width: 28
-        height: 22
+        x: 15
+        y: 4
+        width: 16
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,7 +146,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48fadead7c92be34d9c191f975c033d9
+      spriteID: b68da7fd1b5c8974a8a2e99df35ed2fa
       vertices: []
       indices: 
       edges: []
@@ -151,9 +155,9 @@ TextureImporter:
       name: doors_2
       rect:
         serializedVersion: 2
-        x: 66
+        x: 35
         y: 0
-        width: 28
+        width: 9
         height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -162,7 +166,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7de5ec237a8779444ab6d4d26708ebb8
+      spriteID: 4d48c2d9d3ac6f14ab62b2047cf0fd61
       vertices: []
       indices: 
       edges: []
@@ -171,9 +175,29 @@ TextureImporter:
       name: doors_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 47
+        y: 4
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5bce9781ff651e498e6396d39dc69ba
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: doors_4
+      rect:
+        serializedVersion: 2
+        x: 66
         y: 0
-        width: 28
+        width: 9
         height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -182,7 +206,67 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2f8f710c11dca341b6167b38473f49b
+      spriteID: 5d50faef25fe18a4a88ac276c22ff1a2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: doors_5
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 4
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c662821e4dc033a45af9b285eb1790a7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: doors_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66a058506e4b42e45b045ef1cf5c7647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: doors_7
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 4
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c60e04c973dc3c5409b464ae4fbf8ef9
       vertices: []
       indices: 
       edges: []
