@@ -125,6 +125,7 @@
      <None Include="Assets\Scripts\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\Scripts\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
+     <None Include="Assets\Tiled2Unity\Imported\mapa3.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDefault.shader" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDepth-Instanced.shader" />
@@ -136,13 +137,17 @@
      <None Include="Assets\Tiled2Unity\Tiled2Unity.export.txt" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+     <None Include="Assets\Tiled2Unity\Imported\mapa6.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDepth.shader" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDiffuseDepth.shader" />
+     <None Include="Assets\Tiled2Unity\Imported\mapa8.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\mapa7.tiled2unity.xml" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\Tiled2Unity\Imported\Prueba.tiled2unity.xml" />
      <None Include="Assets\Scripts\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald Bold - OFL.txt" />
+     <None Include="Assets\Tiled2Unity\Imported\mapa5.tiled2unity.xml" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\Scripts\TextMesh Pro\Examples &amp; Extras\Fonts\NotoSans - License.txt" />
@@ -159,6 +164,7 @@
      <None Include="Assets\Tiled2Unity\Shaders\shaColorKey-Instanced.shader" />
      <None Include="Assets\Tiled2Unity\Imported\Mazmorra.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\Overworld.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\BossRoom.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Shaders\shaColorKey.shader" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDepthColorKey.shader" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDepthColorKey-Instanced.shader" />

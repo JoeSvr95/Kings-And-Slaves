@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="16" tileheight="16" infinite="0" nextobjectid="1">
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="16" tileheight="16" infinite="0" nextobjectid="16">
  <tileset firstgid="1" source="tiles_dungeon_v1.1.tsx"/>
  <layer name="Suelo" width="10" height="10">
   <data encoding="csv">
@@ -43,4 +43,28 @@
 332,272,273,376,0,319,275,272,273,274
 </data>
  </layer>
+ <layer name="Adornos" width="10" height="10">
+  <data encoding="csv">
+0,0,0,0,0,0,0,536,537,0,
+0,0,0,0,0,0,0,566,567,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,628,629,0,0,0,0,0,0,0,
+0,658,659,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup name="Colisiones">
+  <object id="1" x="0.333333" y="0" width="15" height="160.333"/>
+  <object id="2" x="15.6667" y="0" width="47.6667" height="15"/>
+  <object id="3" x="80.3333" y="0" width="79.6667" height="15.3333"/>
+  <object id="4" x="144.333" y="15.3333" width="15.3333" height="144.333"/>
+  <object id="7" x="80.6667" y="144.333" width="63" height="15.6667"/>
+  <object id="10" x="16.3333" y="144.333" width="47" height="15.6667"/>
+  <object id="13" x="16" y="125.667" width="31" height="18"/>
+  <object id="14" x="116" y="16" width="23.6667" height="12.3333"/>
+ </objectgroup>
 </map>
