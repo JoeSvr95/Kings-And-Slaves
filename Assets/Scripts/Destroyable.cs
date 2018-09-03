@@ -54,8 +54,7 @@ public class Destroyable : MonoBehaviour {
 
 		if (stateInfo.IsName(destroyState) && stateInfo.normalizedTime >= 1){
 			if (itemPrefab != null){
-				GameObject potionObject = Instantiate(
-					itemPrefab, transform.position, transform.rotation);
+				Instantiate(itemPrefab, transform.position, transform.rotation);
 			}
 			Destroy(gameObject);
 		}

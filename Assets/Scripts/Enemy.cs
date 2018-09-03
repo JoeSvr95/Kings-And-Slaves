@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour {
 	public int maxHp = 3;
 	[Tooltip("Puntos de vida")]
 	public int hp; // Vida actual
+	// Tipo de enemigo
+	public bool isMeleeEnemy;
 	[Header("Unity Stuff")]
 	public Image healthbar;
 	public GameObject health;
@@ -42,6 +44,10 @@ public class Enemy : MonoBehaviour {
 
 		hp = maxHp; // Iniciamos la vida
 		health.SetActive(false);
+
+		if (isMeleeEnemy){
+			attackRadius = 1;
+		}
 	}
 
 	void Update(){
@@ -60,6 +66,7 @@ public class Enemy : MonoBehaviour {
 		Debug.DrawRay(transform.position, forward, Color.red);
 
 		if (hit.collider != null){
+			Debug.Log("playaaaaaaaaar");
 			if (hit.collider.tag == "Player"){
 				target = player.transform.position;
 			}
@@ -76,7 +83,12 @@ public class Enemy : MonoBehaviour {
 			anim.Play("Enemy_Walk", -1, 0);
 
 			// Empezamos a atacar
-			if (!attacking) StartCoroutine(RangeAttack(attackSpeed));
+			if (!attacking){
+				if (isMeleeEnemy) 
+					StartCoroutine(MeleeAttack(attackSpeed));
+				else
+					StartCoroutine(RangeAttack(attackSpeed)); 
+			}
 		} else {
 			rb2d.MovePosition(transform.position + dir * speed * Time.deltaTime);
 
@@ -112,6 +124,17 @@ public class Enemy : MonoBehaviour {
 				anim.GetFloat("movX")
 			) * Mathf.Rad2Deg;
 			Instantiate(rangePrefab, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
+			yield return new WaitForSeconds(seconds);
+		}
+		attacking = false;
+	}
+
+	IEnumerator MeleeAttack(float seconds){
+		attacking = true;
+		if (target != initialPosition){
+			AudioManager.instance.PlaySwordSound();
+			anim.SetTrigger("attacking");
+			player.SendMessage("Attacked", 1);
 			yield return new WaitForSeconds(seconds);
 		}
 		attacking = false;
