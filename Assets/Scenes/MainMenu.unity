@@ -744,6 +744,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSceneIndex: 0
   gameOverScreen: {fileID: 0}
+  playerMaxHp: 3
+  playerHp: 3
+  playerSpeed: 4
+  playerDamage: 1
 --- !u!4 &1145858401
 Transform:
   m_ObjectHideFlags: 0

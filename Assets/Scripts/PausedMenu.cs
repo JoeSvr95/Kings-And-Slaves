@@ -54,7 +54,7 @@ public class PausedMenu : MonoBehaviour {
 	public void Restart(){
 		Time.timeScale = 1f;
 		lvlChanger.SetActive(true);
-		lvlChanger.FadeToLevel(1);
+		lvlChanger.FadeToLevel(GameManager.instance.currentSceneIndex);
 		AudioManager.instance.StopGameOverSound();
 	}
 }

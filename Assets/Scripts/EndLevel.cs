@@ -15,8 +15,12 @@ public class EndLevel : MonoBehaviour {
 		if (col.tag == "Player"){
 			lvlChanger.FadeToLevel(2);
 			player = col.gameObject.GetComponent<Player>();
+
+			// Conservando los stats del jugador para el próximo nivel
 			GameManager.instance.playerMaxHp = player.maxHp;
 			GameManager.instance.playerHp = player.hp;
+			GameManager.instance.playerDamage = player.damage;
+			GameManager.instance.playerSpeed = player.speed;
 		}
 	}
 }

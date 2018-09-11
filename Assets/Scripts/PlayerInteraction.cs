@@ -29,10 +29,10 @@ public class PlayerInteraction : MonoBehaviour {
 						interObjScript.locked = false;
 						interObjScript.Open(player.GetPosX(), player.GetPosY());
 						AudioManager.instance.PlayDoorSound();
-						StartCoroutine(ShowMsg("The door was unlocked!"));
+						StartCoroutine(ShowMsg("La puerta ha sido abierta!"));
 					} else {
 						AudioManager.instance.PlayDoorLocked();
-						StartCoroutine(ShowMsg("This door needs a key!"));
+						StartCoroutine(ShowMsg("Esta puerta necesita una llave!"));
 					}
 				}
 			}
@@ -59,7 +59,7 @@ public class PlayerInteraction : MonoBehaviour {
 			if (damageIncrease){
 				AudioManager.instance.PlayPotionSound();
 			} else {
-				StartCoroutine(ShowMsg("Minimum damage"));
+				StartCoroutine(ShowMsg("Minimo daño"));
 			}
 				item.SendMessage("PickUp");
 		} else if (item.itemType == "hpbonus"){

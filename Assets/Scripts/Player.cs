@@ -14,7 +14,7 @@ public class Player : MonoBehaviour {
 
 	// Vida del jugador
 	[Tooltip("Puntos de vida")]
-	public int maxHp = 3;
+	public int maxHp;
 	[Tooltip("Puntos de vida")]
 	public int hp; // Vida actual
 	public Image[] hearts;
@@ -37,6 +37,8 @@ public class Player : MonoBehaviour {
 	public GameObject gameOverScreen;
 
 	bool movePrevent;
+	float shootCooldown = 0.5f;
+	float shootTimer;
 
 	void Awake(){
 		Assert.IsNotNull(initialMap);
@@ -53,13 +55,18 @@ public class Player : MonoBehaviour {
 
 		Camera.main.GetComponent<MainCamera>().SetBound(initialMap);
 
-		hp = maxHp;
+		maxHp = GameManager.instance.playerMaxHp;
+		hp = GameManager.instance.playerHp;
+		damage = GameManager.instance.playerDamage;
+		speed = GameManager.instance.playerSpeed;
 
 		SetStatsPanelValues();
 
 	}
 	
 	void Update () {
+		shootTimer += Time.deltaTime;
+
 		Movements();
 
 		Animations();
@@ -104,7 +111,7 @@ public class Player : MonoBehaviour {
 	void SwordAttack(){
 		AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
 		bool attacking = stateInfo.IsName("Player_Attack");
-
+		
 		if (Input.GetKeyDown("space") && !attacking){
 			anim.SetTrigger("attacking");
 			AudioManager.instance.PlaySwordSound();
@@ -120,6 +127,10 @@ public class Player : MonoBehaviour {
 	}
 
 	void ArrowAttack(){
+		if (shootTimer < shootCooldown){
+			return;
+		}
+
 		// Estado actual mirando la información del animador
 		AnimatorStateInfo stateinfo = anim.GetCurrentAnimatorStateInfo(0);
 		bool charging = stateinfo.IsName("Player_Arrow");
@@ -127,6 +138,7 @@ public class Player : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.LeftShift)){
 			anim.SetTrigger("charging");
 		} else if (Input.GetKeyUp(KeyCode.LeftShift)){
+			shootTimer = 0;
 			anim.SetTrigger("attack_bow");
 			// Conseguir la rotación a partir de un vector
 			float angle = Mathf.Atan2(
@@ -219,7 +231,7 @@ public class Player : MonoBehaviour {
 	public bool ChangeSpeed(int newSpeed){
 		if ((speed + newSpeed) > 0){
 			speed += newSpeed;
-			StartCoroutine(ShowStats(newSpeed, "Speed"));
+			StartCoroutine(ShowStats(newSpeed, "Velocidad"));
 			return true;
 		} else {
 			return false;
@@ -229,7 +241,7 @@ public class Player : MonoBehaviour {
 	public bool ChangeDamage(int newDamage){
 		if ((damage + newDamage) > 0){
 			damage += newDamage;
-			StartCoroutine(ShowStats(newDamage, "Damage"));
+			StartCoroutine(ShowStats(newDamage, "Daño"));
 			return true;
 		} else {
 			return false;
@@ -242,9 +254,9 @@ public class Player : MonoBehaviour {
 			if (hp > maxHp){
 				hp += newhp;
 			}
-			if (hp == 0) GameOver();
+			if (hp == 0 || maxHp == 0) GameOver();
 			UpdateHearts();
-			StartCoroutine(ShowStats(newhp, "HP"));
+			StartCoroutine(ShowStats(newhp, "Vida"));
 			return true;
 		} else {
 			return false;
@@ -260,9 +272,9 @@ public class Player : MonoBehaviour {
 	}
 
 	void SetStatsPanelValues(){
-		healthText.text = "Health: " + hp;
-		speedText.text = "Speed: " + speed;
-		damageText.text = "Damage: " + damage;
+		healthText.text = "Vida: " + hp;
+		speedText.text = "Velocidad: " + speed;
+		damageText.text = "Daño: " + damage;
 	}
 
 }

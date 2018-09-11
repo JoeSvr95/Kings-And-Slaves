@@ -90,8 +90,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1158246360202726}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.94, y: -27.18, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.159999, y: -4.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224342490591314250}
@@ -130,7 +130,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0020632744, y: -0.11441803}
+  m_Offset: {x: -0.00081014633, y: -0.11441803}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -141,7 +141,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8638544, y: 0.8817911}
+  m_Size: {x: 0.7546625, y: 0.8817911}
   m_EdgeRadius: 0
 --- !u!95 &95434391451714162
 Animator:
@@ -283,8 +283,11 @@ MonoBehaviour:
   attackSpeed: 2
   maxHp: 3
   hp: 0
+  isMeleeEnemy: 0
   healthbar: {fileID: 114336841825750262}
   health: {fileID: 1486468443708474}
+  PosX: 1
+  PosY: 0
 --- !u!212 &212163953499884574
 SpriteRenderer:
   m_ObjectHideFlags: 1
