@@ -7,6 +7,7 @@ TextureImporter:
     21300004: tiles_dungeon_v1.1_2
     21300006: tiles_dungeon_v1.1_3
     21300008: tiles_dungeon_v1.1_4
+    21300010: tiles_dungeon_v1.1_5
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -197,13 +198,33 @@ TextureImporter:
         width: 30
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: d543731230ccb1641996cb06d1b5f69f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles_dungeon_v1.1_5
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 160
+        width: 16
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb8a9e167e0253e4b97305c43cd78a9b
       vertices: []
       indices: 
       edges: []
