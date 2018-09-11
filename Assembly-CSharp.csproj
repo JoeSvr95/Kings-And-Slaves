@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\Attack.cs" />
      <Compile Include="Assets\Scripts\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Destroyable.cs" />
+     <Compile Include="Assets\Scripts\EndLevel.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\EnemyRangeAttack.cs" />
      <Compile Include="Assets\Scripts\FixDepth.cs" />
@@ -65,6 +66,9 @@
      <Compile Include="Assets\Scripts\LevelChanger.cs" />
      <Compile Include="Assets\Scripts\MainCamera.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\Maps\My_grid.cs" />
+     <Compile Include="Assets\Scripts\Maps\Point.cs" />
+     <Compile Include="Assets\Scripts\Maps\reader.cs" />
      <Compile Include="Assets\Scripts\PausedMenu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerInteraction.cs" />
@@ -121,8 +125,10 @@
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileLayer.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileObject.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TmxObject.cs" />
+     <Compile Include="Assets\WallTrigger.cs" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDiffuseDepth-Instanced.shader" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+     <None Include="Assets\Tiled2Unity\Imported\mapa8_lvl2.tiled2unity.xml" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\Scripts\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
      <None Include="Assets\Tiled2Unity\Imported\mapa3.tiled2unity.xml" />
@@ -134,22 +140,29 @@
      <None Include="Assets\Tiled2Unity\Imported\Mapa.tiled2unity.xml" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
      <None Include="Assets\Tiled2Unity\Imported\LevelEnd.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\type_4_1.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Shaders\Tiled2Unity.cginc" />
+     <None Include="Assets\Tiled2Unity\Imported\BossRoom_lvl2.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\mapa1_lvl2.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Tiled2Unity.export.txt" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\Tiled2Unity\Imported\mapa6.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\Inicio_lvl2.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDepth.shader" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDiffuseDepth.shader" />
      <None Include="Assets\Tiled2Unity\Imported\mapa8.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\mapa7.tiled2unity.xml" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\Tiled2Unity\Imported\borde.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\mapa4_lvl2.tiled2unity.xml" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\Tiled2Unity\Imported\Prueba.tiled2unity.xml" />
      <None Include="Assets\Scripts\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald Bold - OFL.txt" />
      <None Include="Assets\Tiled2Unity\Imported\mapa5.tiled2unity.xml" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\Tiled2Unity\Imported\type_2_1.tiled2unity.xml" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\Scripts\TextMesh Pro\Examples &amp; Extras\Fonts\NotoSans - License.txt" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
@@ -157,10 +170,14 @@
      <None Include="Assets\Tiled2Unity\Materials\_ReadMe.txt" />
      <None Include="Assets\Scripts\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\Tiled2Unity\Textures\_ReadMe.txt" />
+     <None Include="Assets\Tiled2Unity\Imported\mapa6_lvl2.tiled2unity.xml" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\Scripts\TextMesh Pro\Examples &amp; Extras\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDefault-Instanced.shader" />
+     <None Include="Assets\Tiled2Unity\Imported\mapa5_lvl2.tiled2unity.xml" />
      <None Include="Assets\Scripts\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
+     <None Include="Assets\Tiled2Unity\Imported\type_3_1.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\type_1_1.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\Inicio.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Shaders\shaColorKey-Instanced.shader" />
      <None Include="Assets\Tiled2Unity\Imported\Mazmorra.tiled2unity.xml" />
@@ -168,16 +185,21 @@
      <None Include="Assets\Tiled2Unity\Imported\BossRoom.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Shaders\shaColorKey.shader" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDepthColorKey.shader" />
+     <None Include="Assets\Tiled2Unity\Imported\mapa2_lvl2.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDepthColorKey-Instanced.shader" />
+     <None Include="Assets\Tiled2Unity\Imported\mapa3_lvl2.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\License.txt" />
+     <None Include="Assets\Tiled2Unity\Imported\type_0_1.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\mapa7_lvl2.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\LevelEnd_lvl2.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
      <None Include="Assets\Tiled2Unity\Imported\mapa2.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Meshes\_ReadMe.txt" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/HOME/Documents/GitHub/Kings-And-Slaves/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/Joe/Documents/Kings-And-Slaves/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/HOME/Documents/GitHub/Kings-And-Slaves/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/Joe/Documents/Kings-And-Slaves/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -375,19 +397,19 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="TextMeshPro-2017.3-Editor">
- <HintPath>C:/Users/HOME/Documents/GitHub/Kings-And-Slaves/Assets/Scripts/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Editor.dll</HintPath>
+ <HintPath>C:/Users/Joe/Documents/Kings-And-Slaves/Assets/Scripts/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Editor.dll</HintPath>
  </Reference>
  <Reference Include="TextMeshPro-2017.3-Runtime">
- <HintPath>C:/Users/HOME/Documents/GitHub/Kings-And-Slaves/Assets/Scripts/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
+ <HintPath>C:/Users/Joe/Documents/Kings-And-Slaves/Assets/Scripts/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.3-Runtime.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Users/HOME/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>C:/Users/Joe/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Purchasing">
- <HintPath>C:/Users/HOME/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.1/UnityEngine.Purchasing.dll</HintPath>
+ <HintPath>C:/Users/Joe/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.1/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.StandardEvents">
- <HintPath>C:/Users/HOME/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/Joe/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>

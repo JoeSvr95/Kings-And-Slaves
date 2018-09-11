@@ -77,6 +77,9 @@ public class AudioManager : MonoBehaviour {
             case 1:
                 Play("backgroundLevel");
                 break;
+            case 2:
+                Play("backgroundLevel");
+                break;
             default:
                 Play("backgroundStartMenu");
                 break;

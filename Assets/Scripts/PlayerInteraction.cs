@@ -57,10 +57,11 @@ public class PlayerInteraction : MonoBehaviour {
 		} else if (item.itemType == "damage"){
 			bool damageIncrease = player.ChangeDamage(item.effect);
 			if (damageIncrease){
-				item.SendMessage("PickUp");
 				AudioManager.instance.PlayPotionSound();
-				Destroy(item);
+			} else {
+				StartCoroutine(ShowMsg("Minimum damage"));
 			}
+				item.SendMessage("PickUp");
 		} else if (item.itemType == "hpbonus"){
 			bool damageIncrease = player.ChangeHP(item.effect);
 			if (damageIncrease){

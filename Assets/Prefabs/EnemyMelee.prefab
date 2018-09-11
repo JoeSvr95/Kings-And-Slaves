@@ -91,7 +91,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1331740237240980}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.157444, y: -29.444126, z: 0}
+  m_LocalPosition: {x: 7.4525566, y: -7.6841264, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224078590142576112}
@@ -228,11 +228,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visionRadius: 3.5
-  attackRadius: 1
+  attackRadius: 0.5
   speed: 2.5
   rangePrefab: {fileID: 0}
-  attackSpeed: 2
-  maxHp: 3
+  attackSpeed: 0.5
+  maxHp: 2
   hp: 0
   isMeleeEnemy: 1
   healthbar: {fileID: 114226232656281646}

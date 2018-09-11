@@ -28,6 +28,11 @@ public class Enemy : MonoBehaviour {
 	public Image healthbar;
 	public GameObject health;
 
+	[Header("Position where the Enemy is going to face")]
+	// Position
+	public float PosX;
+	public float PosY;
+
 	GameObject player;
 	Vector3 initialPosition, target;
 
@@ -66,7 +71,6 @@ public class Enemy : MonoBehaviour {
 		Debug.DrawRay(transform.position, forward, Color.red);
 
 		if (hit.collider != null){
-			Debug.Log("playaaaaaaaaar");
 			if (hit.collider.tag == "Player"){
 				target = player.transform.position;
 			}
@@ -103,6 +107,8 @@ public class Enemy : MonoBehaviour {
 		if (target == initialPosition && distance < 0.02f){
 			transform.position = initialPosition;
 			anim.SetBool("walking", false);
+			anim.SetFloat("movX", PosX);
+			anim.SetFloat("movY", PosY);
 		}
 
 		Debug.DrawLine(transform.position, target, Color.green);
@@ -134,8 +140,8 @@ public class Enemy : MonoBehaviour {
 		if (target != initialPosition){
 			AudioManager.instance.PlaySwordSound();
 			anim.SetTrigger("attacking");
-			player.SendMessage("Attacked", 1);
 			yield return new WaitForSeconds(seconds);
+			player.SendMessage("Attacked", 1);
 		}
 		attacking = false;
 	}
@@ -150,4 +156,5 @@ public class Enemy : MonoBehaviour {
 		}
 		healthbar.fillAmount = ((float)hp/(float)maxHp);
 	}
+	
 }

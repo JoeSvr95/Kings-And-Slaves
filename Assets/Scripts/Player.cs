@@ -27,6 +27,10 @@ public class Player : MonoBehaviour {
 
 	// Status
 	public Text statusTextBox;
+	public Text healthText;
+	public Text speedText;
+	public Text damageText;
+	public GameObject statsPanel;
 
 	public GameObject initialMap;
 	public GameObject arrowPrefab;
@@ -50,6 +54,9 @@ public class Player : MonoBehaviour {
 		Camera.main.GetComponent<MainCamera>().SetBound(initialMap);
 
 		hp = maxHp;
+
+		SetStatsPanelValues();
+
 	}
 	
 	void Update () {
@@ -64,6 +71,13 @@ public class Player : MonoBehaviour {
 		PreventMovement();
 
 		UpdateHearts();
+
+		if (Input.GetKeyDown(KeyCode.Tab)){
+			SetStatsPanelValues();
+			statsPanel.SetActive(true);
+		} else if (Input.GetKeyUp(KeyCode.Tab)) {
+			statsPanel.SetActive(false);
+		}
 	}
 
 	void FixedUpdate(){
@@ -198,6 +212,7 @@ public class Player : MonoBehaviour {
 		gameOverScreen.SetActive(true);
 		Time.timeScale = 0f;
 		PreventMovement();
+		gameObject.SetActive(false);
 		AudioManager.instance.PlayGameOverSound();
 	}
 
@@ -222,13 +237,13 @@ public class Player : MonoBehaviour {
 	}
 
 	public bool ChangeHP(int newhp){
-		int tempMaxHP = maxHp;
 		if ((maxHp + newhp) <= hearts.Length){
 			maxHp += newhp;
-			if (tempMaxHP > maxHp){
+			if (hp > maxHp){
 				hp += newhp;
-				UpdateHearts();
 			}
+			if (hp == 0) GameOver();
+			UpdateHearts();
 			StartCoroutine(ShowStats(newhp, "HP"));
 			return true;
 		} else {
@@ -242,5 +257,12 @@ public class Player : MonoBehaviour {
 		statusTextBox.text = sign + number + " " + stat;
 		yield return new WaitForSeconds(2f);
 		statusTextBox.text = "";
-	} 
+	}
+
+	void SetStatsPanelValues(){
+		healthText.text = "Health: " + hp;
+		speedText.text = "Speed: " + speed;
+		damageText.text = "Damage: " + damage;
+	}
+
 }

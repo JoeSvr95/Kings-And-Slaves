@@ -283,8 +283,11 @@ MonoBehaviour:
   attackSpeed: 2
   maxHp: 5
   hp: 0
+  isMeleeEnemy: 0
   healthbar: {fileID: 114515822598476602}
   health: {fileID: 1843114991397632}
+  PosX: 0
+  PosY: 0
 --- !u!212 &212493611394696146
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -320,7 +323,7 @@ SpriteRenderer:
   m_SortingLayerID: -1628746687
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0cf6d99a440b97c449668b63a60863af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d69c2662b4bd2ef46b39b1f901ac0a14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
