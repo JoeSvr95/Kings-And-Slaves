@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\Arrow.cs" />
      <Compile Include="Assets\Scripts\Attack.cs" />
      <Compile Include="Assets\Scripts\AudioManager.cs" />
+     <Compile Include="Assets\Scripts\Boss.cs" />
      <Compile Include="Assets\Scripts\Destroyable.cs" />
      <Compile Include="Assets\Scripts\EndLevel.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
@@ -107,6 +108,7 @@
      <Compile Include="Assets\Scripts\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
      <Compile Include="Assets\Scripts\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\Scripts\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+     <Compile Include="Assets\Scripts\WallTrigger.cs" />
      <Compile Include="Assets\Scripts\Warp.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GameObjectExtensions.cs" />
@@ -126,7 +128,6 @@
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileLayer.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileObject.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TmxObject.cs" />
-     <Compile Include="Assets\WallTrigger.cs" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDiffuseDepth-Instanced.shader" />
      <None Include="Assets\Scripts\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\Tiled2Unity\Imported\mapa8_lvl2.tiled2unity.xml" />

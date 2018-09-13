@@ -254,9 +254,12 @@ public class Player : MonoBehaviour {
 			if (hp > maxHp){
 				hp += newhp;
 			}
-			if (hp == 0 || maxHp == 0) GameOver();
-			UpdateHearts();
-			StartCoroutine(ShowStats(newhp, "Vida"));
+			if (hp == 0 || maxHp == 0) 
+				GameOver();
+			else {
+				UpdateHearts();
+				StartCoroutine(ShowStats(newhp, "Vida"));
+			}
 			return true;
 		} else {
 			return false;
@@ -275,6 +278,10 @@ public class Player : MonoBehaviour {
 		healthText.text = "Vida: " + hp;
 		speedText.text = "Velocidad: " + speed;
 		damageText.text = "Daño: " + damage;
+	}
+
+	public void Freeze(){
+		mov = Vector2.zero;
 	}
 
 }

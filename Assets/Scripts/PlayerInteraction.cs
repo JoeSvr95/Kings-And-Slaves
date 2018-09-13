@@ -32,7 +32,7 @@ public class PlayerInteraction : MonoBehaviour {
 						StartCoroutine(ShowMsg("La puerta ha sido abierta!"));
 					} else {
 						AudioManager.instance.PlayDoorLocked();
-						StartCoroutine(ShowMsg("Esta puerta necesita una llave!"));
+						StartCoroutine(ShowMsg("Se necesita una llave!"));
 					}
 				}
 			}
