@@ -41,6 +41,7 @@ public class PausedMenu : MonoBehaviour {
 
     public void LoadMenu()
     {
+		AudioManager.instance.StopSceneMusic(1);
         Time.timeScale = 1f;
 		lvlChanger.SetActive(true);
         lvlChanger.FadeToLevel(0);
